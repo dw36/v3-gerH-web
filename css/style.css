@@ -236,44 +236,52 @@ GALLERY SECTIONS
 }
 
 /* =========================
-FOOTER ARCHITECTURE
+FOOTER ARCHITECTURE (DARK PREMIUM VARIANT)
 ========================= */
 footer {
   margin-top: 80px;
-  background: #ffffff;
-  border-top: 1px solid #f2ede4;
-  padding: 40px 0;
+  background: #1e1e1e !important; /* Premium sleek dark charcoal background padding */
+  border-top: 2px solid #8c6239;  /* Sophisticated thin bronze top accent border line */
+  padding: 50px 0 30px 0;
 }
 
+/* Main Heading Title Grouping */
 footer h3,
-footer h4 {
+footer h4,
+footer .footer-brand-title {
   font-weight: 700;
-  color: #3b2314;
+  color: #fdfbf7 !important; /* Elegant clean off-white for absolute perfect legibility */
+  letter-spacing: 0.5px;
 }
 
-footer p {
+/* Secondary Descriptive Subtext Paragaphs */
+footer p,
+footer .text-muted,
+footer .footer-subtext {
   margin-bottom: 8px;
-  color: #6e5d53;
+  color: #ecdcc9 !important; /* Light sand tone for a warm, easy-to-read tropical look */
+  font-size: 15px;
 }
 
-/* =========================
-RESPONSIVE LAYOUT RESPONSES
-========================= */
-@media (max-width: 991px) {
-  .quote-panel {
-    position: static;
-    margin-top: 30px;
-  }
-  .hero {
-    text-align: center;
-  }
-  .hero img {
-    margin-top: 40px;
-  }
-  .card-img-top {
-    height: 200px;
-  }
-  .card {
-    margin-bottom: 25px;
-  }
+/* Dynamic Pricing Menu Column Rows on the Right */
+footer .footer-pricing-list,
+footer span,
+footer strong {
+  color: #fdfbf7 !important; /* Bright off-white for package items names */
+}
+
+/* Highlighted Price Numbers Column Value Metrics */
+footer .footer-price-highlight,
+footer span.text-light-gold {
+  color: #dfb78c !important; /* Gorgeous soft metallic bronze gold tone accent for numbers */
+  font-weight: 600;
+}
+
+/* Footer Bottom Center Copyright Label Rule */
+footer .copyright-text,
+footer small {
+  color: #a3958c !important; /* Muted stone grey to look professional and stay subtle */
+  font-size: 13px;
+  margin-top: 20px;
+  display: block;
 }
