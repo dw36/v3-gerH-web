@@ -177,7 +177,7 @@ function updateQuote(){
 
   if(selectedModel){
     if(selectedModelText) {
-      // Retain user interface package header text names and original package tier values
+      // Show package base values in the summary box header card text
       let displayBasePrice = 16900;
       if (selectedModel.name === "The Equipped") displayBasePrice = 22700;
       if (selectedModel.name === "The Turnkey") displayBasePrice = 24970;
@@ -191,36 +191,8 @@ function updateQuote(){
     if(selectedModelText) selectedModelText.innerHTML="None Selected";
   }
 
-  // Add the price of EVERY checked item in the array to the absolute base
-  selectedItems.forEach(item => {
-    total += item.price;
-  });
-
-  // Display custom user additions that are NOT part of the base package template
-  let macroIncludesNames = [];
-  if (selectedModel) {
-    // Find what items are natively bundled to prevent sidebar listing clutter
-    const originalPresetMap = {
-      "The Canvas": [],
-      "The Equipped": [
-        "Water Heater", "AC (Living Room) 18k BTU", "AC (Bedroom) 9k BTU", "Burner Two-Stove",
-        "Range Hood", "Microwave", "Dining Room Light", "Dryer", "Washer", "Fridge (10 cu. ft.)",
-        "TV (55 inch)", "Living Room Ceiling Light", "Bathroom Vent Fan", "Bedroom Ceiling Light", "Bathroom Mirror Light"
-      ],
-      "The Turnkey": [
-        "Water Heater", "AC (Living Room) 18k BTU", "AC (Bedroom) 9k BTU", "Burner Two-Stove",
-        "Range Hood", "Microwave", "Dining Room Light", "Dryer", "Washer", "Fridge (10 cu. ft.)",
-        "TV (55 inch)", "Living Room Ceiling Light", "Bathroom Vent Fan", "Bedroom Ceiling Light", "Bathroom Mirror Light",
-        "Bedding Set", "Wall Art", "Mattress", "Couch", "Dining Chair (Pair)", "Queen Bed", "Bathroom Towel Set",
-        "TV Cabinet", "Closet Organizer System", "Nightstand", "Pillows", "Shower Set", "Kitchen Faucet", "Bathroom Faucet"
-      ]
-    };
-    macroIncludesNames = originalPresetMap[selectedModel.name] || [];
-  }
-
-  const customAddonsOnly = selectedItems.filter(i => !macroIncludesNames.includes(i.name));
-
-  if(customAddonsOnly.length===0){
+  // Generate sidebar listings for ALL items present in selectedItems array
+  if(selectedItems.length === 0){
     if(selectedItemsDiv) {
       selectedItemsDiv.innerHTML=`
       <p class="text-muted">
@@ -230,7 +202,8 @@ function updateQuote(){
     }
   }else{
     let html="";
-    customAddonsOnly.forEach(item=>{
+    selectedItems.forEach(item=>{
+      total += item.price; // Accumulate calculation values naturally onto canvas model core base
       html+=`
       <div class="d-flex justify-content-between border-bottom py-2">
       <span>${item.name}</span>
@@ -242,6 +215,7 @@ function updateQuote(){
     });
     if(selectedItemsDiv) selectedItemsDiv.innerHTML=html;
   }
+  
   if(grandTotal) grandTotal.innerHTML="$"+total.toLocaleString();
   saveQuote();
 }
