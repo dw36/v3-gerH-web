@@ -20,7 +20,7 @@
     {
       "id": 2,
       "name": "The Equipped",
-      "price": 22700,
+      "price": 16900,
       "description": "Our most popular package with additional built-in features.",
       "includes": [
         { "name": "Water Heater", "price": 750 },
@@ -43,7 +43,7 @@
     {
       "id": 3,
       "name": "The Turnkey",
-      "price": 24970,
+      "price": 16900,
       "description": "Move-in ready with premium finishes.",
       "includes": [
         { "name": "Water Heater", "price": 750 },
