@@ -106,43 +106,63 @@ PROMOTIONAL BANNERS
   font-weight: 700;
 }
 
-/* =========================
-BUILD SYSTEM PAGE INTERFACES
-========================= */
-#searchBox {
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  padding: 16px;
-  font-size: 18px;
+/* =========================================================================
+   LUXURY UNIFORM MODEL BUTTON ARCHITECTURE (ALL BUTTONS ALIGNED CONSISTENTLY)
+   ========================================================================= */
+
+/* Force layout container alignment so buttons sit evenly on the bottom row */
+.card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100%;
 }
 
-#searchBox:focus {
-  border-color: #8c6239;
-  box-shadow: 0 0 0 3px rgba(140, 98, 57, 0.15);
-  outline: none;
+.model-card .btn,
+.model-card .btn-success,
+.model-card .btn-outline-primary,
+.product-card .btn {
+  margin-top: auto !important; /* Pushes the button to the exact bottom of the card body */
+  width: 100%;                 /* Clean full-width design block */
 }
 
-.quote-panel {
-  position: sticky;
-  top: 20px;
-  z-index: 100;
-  background: #fdfbf7;
+/* Premium Uniform Button Styling Base */
+.btn,
+.model-card .btn,
+.model-card .btn-success,
+.model-card .btn-outline-primary,
+#downloadPdf {
+  background: transparent !important;
+  color: #8c6239 !important;               /* Refined Bahamian Bronze brand text color */
+  border: 1px solid #8c6239 !important;    /* Sleek, understated custom bronze fine-line border */
+  border-radius: 8px;                      /* Contemporary crisp architectural corner profile scaling */
+  font-weight: 600;
+  padding: 12px 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;               /* Clean high-end look */
+  font-size: 13px;
+  box-shadow: none !important;             /* Removes cheap-looking gradient shadows */
+  transition: all 0.25s ease-in-out;
 }
 
-#grandTotal {
-  font-size: 42px;
-  font-weight: 700;
-  color: #8c6239; /* Elegant custom price evaluation color metrics */
+/* Smooth Premium Hover Fill State Rules */
+.btn:hover,
+.model-card .btn:hover,
+.model-card .btn-success:hover,
+.model-card .btn-outline-primary:hover,
+#downloadPdf:hover {
+  background: #8c6239 !important;          /* Elegant solid bronze flooded background color on hover */
+  color: #ffffff !important;               /* Flips the text to a crisp contrast white */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(140, 98, 57, 0.15) !important;
 }
 
-#quoteNumber {
-  color: #8c6239;
-  font-weight: 700;
+#submitQuote {
+  color: #fff;
 }
 
-#selectedItems {
-  max-height: 320px;
-  overflow-y: auto;
+.btn-lg {
+  padding: 14px;
+  font-weight: 600;
 }
 
 /* ==========================================
