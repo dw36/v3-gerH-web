@@ -18,9 +18,34 @@ fetch("data/catalog.json")
 .then(res=>res.json())
 .then(data=>{
   catalog=data;
+  
+  // INITIAL RUN STATE SETUP: Check if a quote is already cached in localStorage first
+  const saved = localStorage.getItem("aduQuote");
+  if (saved) {
+    const quote = JSON.parse(saved);
+    selectedModel = quote.model;
+    selectedItems = quote.items || [];
+  } else {
+    // If NO saved quote, find the radio button that is pre-checked on the HTML page
+    const defaultRadio = document.querySelector(".model-option:checked");
+    if (defaultRadio) {
+      const modelName = defaultRadio.dataset.name;
+      selectedModel = {
+        name: modelName,
+        price: Number(defaultRadio.value)
+      };
+      // Pull down the preset components from catalog arrays straight away
+      const matchingModel = catalog.models.find(m => m.name === modelName);
+      if (matchingModel && matchingModel.includes) {
+        selectedItems = [...matchingModel.includes];
+      }
+    }
+  }
+
+  // Render components and initialize listeners safely
   buildProducts();
   setupModelSelection();
-  loadQuote();
+  loadQuoteVisuals(); // Update form inputs to highlight correct elements
 });
 
 // ===============================
@@ -214,21 +239,15 @@ function saveQuote(){
   );
 }
 
-function loadQuote(){
-  const saved=localStorage.getItem("aduQuote");
-  if(!saved) return;
-  const quote=JSON.parse(saved);
-  selectedModel=quote.model;
-  selectedItems=quote.items||[];
-  
+function loadQuoteVisuals(){
   document.querySelectorAll(".model-option").forEach(radio=>{
     if(selectedModel && radio.dataset.name===selectedModel.name){
-      radio.checked=true;
+      radio.checked = true;
     }
   });
   
   document.querySelectorAll(".addon").forEach(box=>{
-    box.checked=selectedItems.some(
+    box.checked = selectedItems.some(
       i=>i.name===box.dataset.name
     );
   });
