@@ -1,18 +1,18 @@
 // ==========================================
-// ADU Build Cottage
+// ADU Build Cottage - Complete System Engine
 // ==========================================
 let catalog = {};
 let selectedModel = null;
 let selectedItems = [];
 
-// Elements
+// DOM Elements
 const productArea = document.getElementById("productArea");
 const selectedModelText = document.getElementById("selectedModel");
 const selectedItemsDiv = document.getElementById("selectedItems");
 const grandTotal = document.getElementById("grandTotal");
 
 // ===============================
-// Load Catalog
+// Load Catalog Configuration
 // ===============================
 fetch("data/catalog.json")
 .then(res=>res.json())
@@ -32,9 +32,9 @@ fetch("data/catalog.json")
       const modelName = defaultRadio.dataset.name;
       selectedModel = {
         name: modelName,
-        price: Number(defaultRadio.value)
+        price: 16900 // Force underlying tracking logic value to Canvas baseline cost safely
       };
-      // Pull down the preset components from catalog arrays straight away
+      
       const matchingModel = catalog.models.find(m => m.name === modelName);
       if (matchingModel && matchingModel.includes) {
         selectedItems = [...matchingModel.includes];
@@ -42,14 +42,14 @@ fetch("data/catalog.json")
     }
   }
 
-  // Render components and initialize listeners safely
+  // Render elements and configure handlers cleanly
   buildProducts();
   setupModelSelection();
-  loadQuoteVisuals(); // Update form inputs to highlight correct elements
+  loadQuoteVisuals(); 
 });
 
 // ===============================
-// Build Products
+// Build and Render Product List
 // ===============================
 function buildProducts(){
   if(!productArea) return;
@@ -64,7 +64,7 @@ function buildProducts(){
     <div class="row">
     `;
     category.items.forEach(item=>{
-      // Sync checkbox state dynamically using name comparisons
+      // Synchronize checkbox state based on selection array status
       const isChecked = selectedItems.some(i => i.name === item.name);
 
       html+=`
@@ -107,7 +107,7 @@ function buildProducts(){
 }
 
 // ===============================
-// Model Selection
+// Model Option Event Handlers
 // ===============================
 function setupModelSelection(){
   document.querySelectorAll(".model-option").forEach(radio=>{
@@ -115,35 +115,34 @@ function setupModelSelection(){
       const modelName = this.dataset.name;
       selectedModel={
         name:modelName,
-        price:Number(this.value)
+        price: 16900 // Force underlying calculation value to Canvas baseline cost
       };
 
-      // Reset initial tracking configuration states
+      // Reset checked items memory arrays cleanly
       selectedItems = [];
 
-      // Extract template bundles array elements from static catalog lookup files
       const matchingModel = catalog.models.find(m => m.name === modelName);
       if (matchingModel && matchingModel.includes) {
         selectedItems = [...matchingModel.includes];
       }
 
-      buildProducts(); // Forces active configurations to highlight checkbox visuals
+      buildProducts(); // Re-render checkboxes to reflect current selection array mapping
       updateQuote();
     });
   });
 }
 
 // ===============================
-// Add-on Selection
+// Checkbox Change Event Handlers
 // ===============================
 function setupAddons(){
   document.querySelectorAll(".addon").forEach(box=>{
     box.addEventListener("change",function(){
       const item={
-        name:this.dataset.name,
-        price:Number(this.dataset.price)
+        name:box.dataset.name,
+        price:Number(box.dataset.price)
       };
-      if(this.checked){
+      if(box.checked){
         if(!selectedItems.some(i => i.name === item.name)) {
           selectedItems.push(item);
         }
@@ -156,7 +155,7 @@ function setupAddons(){
 }
 
 // ===============================
-// Search
+// Dynamic Search Box Parsing
 // ===============================
 const searchBox=document.getElementById("searchBox");
 if(searchBox){
@@ -170,32 +169,56 @@ if(searchBox){
 }
 
 // ===============================
-// Update Quote
+// Calculate Totals and Render DOM
 // ===============================
 function updateQuote(){
-  let total=0;
+  // Absolute base structural price is always $16,900 across all presets now
+  let total = 16900; 
+
   if(selectedModel){
-    total+=selectedModel.price;
     if(selectedModelText) {
+      // Retain user interface package header text names and original package tier values
+      let displayBasePrice = 16900;
+      if (selectedModel.name === "The Equipped") displayBasePrice = 22700;
+      if (selectedModel.name === "The Turnkey") displayBasePrice = 24970;
+
       selectedModelText.innerHTML=`
       <strong>${selectedModel.name}</strong><br>
-      $${selectedModel.price.toLocaleString()}
+      $${displayBasePrice.toLocaleString()}
       `;
     }
-  }else{
+  } else {
     if(selectedModelText) selectedModelText.innerHTML="None Selected";
   }
 
-  // Filter package core presets to only output extra items in sidebar layout tables
-  let baselineItemNames = [];
+  // Add the price of EVERY checked item in the array to the absolute base
+  selectedItems.forEach(item => {
+    total += item.price;
+  });
+
+  // Display custom user additions that are NOT part of the base package template
+  let macroIncludesNames = [];
   if (selectedModel) {
-    const matchingModel = catalog.models.find(m => m.name === selectedModel.name);
-    if (matchingModel && matchingModel.includes) {
-      baselineItemNames = matchingModel.includes.map(i => i.name);
-    }
+    // Find what items are natively bundled to prevent sidebar listing clutter
+    const originalPresetMap = {
+      "The Canvas": [],
+      "The Equipped": [
+        "Water Heater", "AC (Living Room) 18k BTU", "AC (Bedroom) 9k BTU", "Burner Two-Stove",
+        "Range Hood", "Microwave", "Dining Room Light", "Dryer", "Washer", "Fridge (10 cu. ft.)",
+        "TV (55 inch)", "Living Room Ceiling Light", "Bathroom Vent Fan", "Bedroom Ceiling Light", "Bathroom Mirror Light"
+      ],
+      "The Turnkey": [
+        "Water Heater", "AC (Living Room) 18k BTU", "AC (Bedroom) 9k BTU", "Burner Two-Stove",
+        "Range Hood", "Microwave", "Dining Room Light", "Dryer", "Washer", "Fridge (10 cu. ft.)",
+        "TV (55 inch)", "Living Room Ceiling Light", "Bathroom Vent Fan", "Bedroom Ceiling Light", "Bathroom Mirror Light",
+        "Bedding Set", "Wall Art", "Mattress", "Couch", "Dining Chair (Pair)", "Queen Bed", "Bathroom Towel Set",
+        "TV Cabinet", "Closet Organizer System", "Nightstand", "Pillows", "Shower Set", "Kitchen Faucet", "Bathroom Faucet"
+      ]
+    };
+    macroIncludesNames = originalPresetMap[selectedModel.name] || [];
   }
 
-  const customAddonsOnly = selectedItems.filter(i => !baselineItemNames.includes(i.name));
+  const customAddonsOnly = selectedItems.filter(i => !macroIncludesNames.includes(i.name));
 
   if(customAddonsOnly.length===0){
     if(selectedItemsDiv) {
@@ -208,7 +231,6 @@ function updateQuote(){
   }else{
     let html="";
     customAddonsOnly.forEach(item=>{
-      total+=item.price;
       html+=`
       <div class="d-flex justify-content-between border-bottom py-2">
       <span>${item.name}</span>
@@ -225,7 +247,7 @@ function updateQuote(){
 }
 
 // ===============================
-// Save / Load Quote
+// Browser Cache Records Storage
 // ===============================
 function saveQuote(){
   if(!grandTotal) return;
