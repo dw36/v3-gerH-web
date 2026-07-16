@@ -1,3 +1,28 @@
+// ============================================================
+// Cottage Rendering Image Database Lookup Maps
+// ============================================================
+// Change these file names to match the exact names of your images inside your folder!
+const cottageRenderings = {
+    "The Canvas": {
+        title: "The Canvas Configurations",
+        exterior: "images/canvas-exterior.jpg",
+        interior: "images/canvas-skeleton.jpg",
+        layout:   "images/canvas-blueprint.jpg"
+    },
+    "The Equipped": {
+        title: "The Equipped Configurations",
+        exterior: "images/equipped-exterior.jpg",
+        interior: "images/equipped-skeleton.jpg",
+        layout:   "images/equipped-blueprint.jpg"
+    },
+    "The Turnkey": {
+        title: "The Turnkey Configurations",
+        exterior: "images/turnkey-exterior.jpg",
+        interior: "images/turnkey-skeleton.jpg",
+        layout:   "images/turnkey-blueprint.jpg"
+    }
+};
+
 // ===============================
 // Load Quote
 // ===============================
@@ -5,6 +30,12 @@ const modelText = document.getElementById("selectedModel");
 const itemsDiv = document.getElementById("selectedItems");
 const totalText = document.getElementById("grandTotal");
 const quoteNumber = document.getElementById("quoteNumber");
+
+// Elements inside quote.html mapping out the rendering views
+const renderingTitle = document.getElementById("renderingTitle");
+const viewExterior = document.getElementById("viewExterior");
+const viewInterior = document.getElementById("viewInterior");
+const viewLayout = document.getElementById("viewLayout");
 
 const quote = JSON.parse(localStorage.getItem("aduQuote"));
 const today = new Date();
@@ -26,6 +57,18 @@ if (quote) {
             <strong>${quote.model.name}</strong><br>
             $${quote.model.price.toLocaleString()}
         `;
+
+        // DYNAMIC RENDERING UPDATER
+        // Reads chosen cottage configuration name and swaps target image links dynamically
+        const chosenModelName = quote.model.name; 
+        const assets = cottageRenderings[chosenModelName];
+
+        if (assets) {
+            if (renderingTitle) renderingTitle.innerText = assets.title;
+            if (viewExterior) viewExterior.src = assets.exterior;
+            if (viewInterior) viewInterior.src = assets.interior;
+            if (viewLayout)   viewLayout.src = assets.layout;
+        }
     }
 
     let total = 0;
@@ -51,7 +94,6 @@ if (quote) {
     if (itemsDiv) itemsDiv.innerHTML = html;
     if (totalText) totalText.innerText = "$" + total.toLocaleString();
 }
-
 // ===============================
 // Send Quote Request via WhatsApp
 // ===============================
@@ -64,7 +106,7 @@ if (submitBtn) {
         const fullName = (document.getElementById('customerName')?.value || '').trim();
         const company = (document.getElementById('companyName')?.value || '').trim();
         const email = (document.getElementById('email')?.value || '').trim();
-        const phone = (document.getElementById('phone')?.value || '').trim();
+        const phone = document.getElementById('phone')?.value || '';
         const whatsappField = (document.getElementById('whatsapp')?.value || '').trim();
         const country = (document.getElementById('country')?.value || '').trim();
         const contactMethod = document.getElementById('contactMethod')?.value || 'Not Specified';
