@@ -2,8 +2,8 @@
   "company": {
     "name": "Modern Cottage Builder",
     "website": "",
-    "phone": "+1-954-665-4093",
-    "email": "david@turbo-trading.net"
+    "phone": "",
+    "email": ""
   },
   "promotion": {
     "shippingTitle": "🚚 Shipping Promotion",
@@ -14,68 +14,19 @@
       "id": 1,
       "name": "The Canvas",
       "price": 16900,
-      "description": "Perfect for customers wanting an affordable modern cottage.",
-      "includes": []
+      "description": "Perfect for customers wanting an affordable modern cottage."
     },
     {
       "id": 2,
       "name": "The Equipped",
       "price": 22700,
-      "description": "Our most popular package with additional built-in features.",
-      "includes": [
-        { "name": "Water Heater", "price": 750 },
-        { "name": "AC (Living Room) 18k BTU", "price": 1407 },
-        { "name": "AC (Bedroom) 9k BTU", "price": 807 },
-        { "name": "Burner Two-Stove", "price": 189 },
-        { "name": "Range Hood", "price": 249 },
-        { "name": "Microwave", "price": 69 },
-        { "name": "Dining Room Light", "price": 19 },
-        { "name": "Dryer", "price": 659 },
-        { "name": "Washer", "price": 519 },
-        { "name": "Fridge (10 cu. ft.)", "price": 657 },
-        { "name": "TV (55 inch)", "price": 299 },
-        { "name": "Living Room Ceiling Light", "price": 29 },
-        { "name": "Bathroom Vent Fan", "price": 29 },
-        { "name": "Bedroom Ceiling Light", "price": 19 },
-        { "name": "Bathroom Mirror Light", "price": 99 }
-      ]
+      "description": "Our most popular package with additional built-in features."
     },
     {
       "id": 3,
       "name": "The Turnkey",
       "price": 24970,
-      "description": "Move-in ready with premium finishes.",
-      "includes": [
-        { "name": "Water Heater", "price": 750 },
-        { "name": "AC (Living Room) 18k BTU", "price": 1407 },
-        { "name": "AC (Bedroom) 9k BTU", "price": 807 },
-        { "name": "Burner Two-Stove", "price": 189 },
-        { "name": "Range Hood", "price": 249 },
-        { "name": "Microwave", "price": 69 },
-        { "name": "Dining Room Light", "price": 19 },
-        { "name": "Dryer", "price": 659 },
-        { "name": "Washer", "price": 519 },
-        { "name": "Fridge (10 cu. ft.)", "price": 657 },
-        { "name": "TV (55 inch)", "price": 299 },
-        { "name": "Living Room Ceiling Light", "price": 29 },
-        { "name": "Bathroom Vent Fan", "price": 29 },
-        { "name": "Bedroom Ceiling Light", "price": 19 },
-        { "name": "Bathroom Mirror Light", "price": 99 },
-        { "name": "Bedding Set", "price": 235 },
-        { "name": "Wall Art", "price": 99 },
-        { "name": "Mattress", "price": 189 },
-        { "name": "Couch", "price": 188 },
-        { "name": "Dining Chair (Pair)", "price": 119 },
-        { "name": "Queen Bed", "price": 109 },
-        { "name": "Bathroom Towel Set", "price": 85 },
-        { "name": "TV Cabinet", "price": 89 },
-        { "name": "Closet Organizer System", "price": 69 },
-        { "name": "Nightstand", "price": 59 },
-        { "name": "Pillows", "price": 55 },
-        { "name": "Shower Set", "price": 75 },
-        { "name": "Kitchen Faucet", "price": 43 },
-        { "name": "Bathroom Faucet", "price": 38 }
-      ]
+      "description": "Move-in ready with premium finishes."
     }
   ],
   "categories": [
