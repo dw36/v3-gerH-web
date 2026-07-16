@@ -1,0 +1,7 @@
+{
+  "name": "v2-test-my-home-sales-website",
+  "version": "1.0.0",
+  "description": "Cottage Quote Platform with Discord Webhook Integration",
+  "main": "functions/send-quote.js",
+  "dependencies": {}
+}

@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+  functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/send-quote"
+  to = "/.netlify/functions/send-quote"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

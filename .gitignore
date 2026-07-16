@@ -1,0 +1,8 @@
+# Node dependencies (very heavy!)
+package-lock.json
+
+# Local Netlify cache and environments
+.env
+
+# Deno dependency lock
+deno.lock
