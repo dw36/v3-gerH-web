@@ -66,7 +66,7 @@
         { "name": "Mattress", "price": 189 },
         { "name": "Couch", "price": 188 },
         { "name": "Dining Chair (Pair)", "price": 119 },
-        { "name": "Queen Bed", "price": 109 },
+        { "name": "Queen Bed Frame", "price": 109 },
         { "name": "Bathroom Towel Set", "price": 85 },
         { "name": "TV Cabinet", "price": 89 },
         { "name": "Closet Organizer System", "price": 69 },
@@ -99,27 +99,27 @@
         { "name": "Fridge (10 cu. ft.)", "price": 657, "image": "1bmd-fridge.jpg" },
         { "name": "TV (55 inch)", "price": 299, "image": "1bmd-tv-55in.jpg" },
         { "name": "Bathroom Vent Fan", "price": 29, "image": "1bmd-vent-01.jpg" },
-        { "name": "Bathroom Mirror Light", "price": 99, "image": "mirror-light.jpg" },
+        { "name": "Bathroom Mirror Light", "price": 99, "image": "mirrorNoFr-lt-restRm-24in.jpg" },
         { "name": "Dishwasher", "price": 819, "image": "1bmd-dishW-01-670b660b885.jpg" },
-        { "name": "Hair Dryer", "price": 28, "image": "hair-dryer.jpg" },
+        { "name": "Hair Dryer", "price": 28, "image": "hairDryer-universal.jpg" },
         { "name": "Vacuum Robot", "price": 535, "image": "vacRobot-622a.jpg" },
-        { "name": "Sound Bar", "price": 99, "image": "soundbar.jpg" }
+        { "name": "Sound Bar", "price": 99, "image": "soundBar-universal.jpg" }
       ]
     },
     {
       "title": "Furniture & Decor",
       "folder": "furniture",
       "items": [
-        { "name": "Bedding Set", "price": 235, "image": "bedding.jpg" },
-        { "name": "Wall Art", "price": 99, "image": "wall-art.jpg" },
-        { "name": "Mattress", "price": 189, "image": "mattress.jpg" },
-        { "name": "Couch", "price": 188, "image": "couch.jpg" },
-        { "name": "Dining Chair (Pair)", "price": 119, "image": "dining-chair.jpg" },
-        { "name": "Queen Bed", "price": 109, "image": "queen-bed.jpg" },
-        { "name": "Bathroom Towel Set", "price": 85, "image": "towel-set.jpg" },
-        { "name": "TV Cabinet", "price": 89, "image": "tv-cabinet.jpg" },
-        { "name": "Closet Organizer System", "price": 69, "image": "closet-system.jpg" },
+        { "name": "Wall Art", "price": 99, "image": "wallart-univr-01.jpg" },
+        { "name": "Couch", "price": 188, "image": "couch-univr-01.jpg" },
+        { "name": "Dining Chair (Pair)", "price": 119, "image": "barChair-univr-01.jpg" },
+        { "name": "TV Cabinet", "price": 89, "image": "tvCarbinet-univr-01.jpg" },
+        { "name": "Closet Organizer System", "price": 69, "image": "1bmd-closetOrganizer.jpg" },
+        { "name": "Queen Bed Frame", "price": 109, "image": "queenBedFrame-01.jpg" },
         { "name": "Nightstand", "price": 59, "image": "nightstand.jpg" },
+        { "name": "Bedding Set", "price": 235, "image": "bedding.jpg" },
+        { "name": "Mattress", "price": 189, "image": "mattress.jpg" },
+        { "name": "Bathroom Towel Set", "price": 85, "image": "towel-set.jpg" },
         { "name": "Pillows", "price": 55, "image": "pillows.jpg" }
       ]
     },
@@ -127,9 +127,9 @@
       "title": "Fixtures & Hardware",
       "folder": "fixtures",
       "items": [
-        { "name": "Shower Set", "price": 75, "image": "shower-set.jpg" },
-        { "name": "Kitchen Faucet", "price": 43, "image": "kitchen-faucet.jpg" },
-        { "name": "Bathroom Faucet", "price": 38, "image": "bathroom-faucet.jpg" }
+        { "name": "Shower Set", "price": 75, "image": "shower-univr-01.jpg" },
+        { "name": "Kitchen Faucet", "price": 43, "image": "faucetSink-univr-01.jpg" },
+        { "name": "Bathroom Faucet", "price": 38, "image": "faucetRest-univr-01.jpg" }
       ]
     }
   ]
