@@ -74,6 +74,7 @@
         { "name": "Pillows", "price": 55 },
         { "name": "Shower Set", "price": 75 },
         { "name": "Kitchen Faucet", "price": 43 },
+        { "name": "Bathroom Towel Rack", "price": 85 },
         { "name": "Bathroom Faucet", "price": 38 }
       ]
     }
@@ -116,11 +117,12 @@
         { "name": "TV Cabinet", "price": 89, "image": "tvCarbinet-univr-01.jpg" },
         { "name": "Closet Organizer System", "price": 69, "image": "1bmd-closetOrganizer.jpg" },
         { "name": "Queen Bed Frame", "price": 109, "image": "queenBedFrame-01.jpg" },
-        { "name": "Nightstand", "price": 59, "image": "nightstand.jpg" },
-        { "name": "Bedding Set", "price": 235, "image": "bedding.jpg" },
-        { "name": "Mattress", "price": 189, "image": "mattress.jpg" },
-        { "name": "Bathroom Towel Set", "price": 85, "image": "towel-set.jpg" },
-        { "name": "Pillows", "price": 55, "image": "pillows.jpg" }
+        { "name": "Nightstand", "price": 59, "image": "niStand-univr-01.jpg" },
+        { "name": "Bedding Set", "price": 235, "image": "bedding-univr-01.jpg" },
+        { "name": "Mattress", "price": 189, "image": "mattress-univr-01.jpg" },
+        { "name": "Pillows", "price": 55, "image": "pilow-univr-01.jpg" }
+        
+        
       ]
     },
     {
@@ -129,7 +131,8 @@
       "items": [
         { "name": "Shower Set", "price": 75, "image": "shower-univr-01.jpg" },
         { "name": "Kitchen Faucet", "price": 43, "image": "faucetSink-univr-01.jpg" },
-        { "name": "Bathroom Faucet", "price": 38, "image": "faucetRest-univr-01.jpg" }
+        { "name": "Bathroom Faucet", "price": 38, "image": "faucetRest-univr-01.jpg" },
+        { "name": "Bathroom Towel Rack", "price": 85, "image": "towelRack-univr-01.jpg" }
       ]
     }
   ]
